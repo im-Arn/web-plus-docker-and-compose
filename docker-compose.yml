@@ -1,0 +1,47 @@
+services:
+  backend:
+    container_name: 'kupi-backend'
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: 'backend-kpd'
+    restart: always
+    env_file: .env
+    ports:
+      - '4000:3000'
+    # depends_on:
+    #   - postgres
+    # restart: on-failure
+    # networks:
+    #   - backend
+
+  postgres:
+    container_name: 'postgres'
+    image: postgres:alpine
+    restart: always
+    env_file: .env
+    # networks:
+    #   - backend-database
+    ports:
+      - '5432:5432'
+
+  frontend:
+    container_name: 'kupi-frontend'
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: 'frontend-kpd'
+    restart: always
+    env_file: .env
+    ports:
+      - '8081:3000'
+    # restart: on-failure
+    # networks:
+    # - frontend
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+     - '8080:8080'
+
