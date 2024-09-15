@@ -42,13 +42,13 @@ services:
     networks:
       - frontend
 
-  adminer:
-    image: adminer
-    restart: on-failure
-    ports:
-     - '8080:8080'
-    networks:
-      - backend
+  # adminer:
+  #   image: adminer
+  #   restart: on-failure
+  #   ports:
+  #    - '8080:8080'
+  #   networks:
+  #     - backend
 # необбходимы сети для контейнеров чтобы обезопасить контейнеры, фронт не должен взаимодействовать с бд
 networks:
   backend:
