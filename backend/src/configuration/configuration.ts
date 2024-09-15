@@ -11,7 +11,7 @@ export default () => ({
     name: process.env.POSTGRES_DB || 'kupipodariday',
   },
   jwt: {
-    key: process.env.JWT_KEY || 'super-strong-secret',
+    key: process.env.JWT_SECRET || 'super-strong-secret',
     ttl: parseInt(process.env.JWT_EXPIRATION_TIME) || '36000',
   },
 });
