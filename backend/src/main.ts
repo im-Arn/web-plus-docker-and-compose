@@ -15,7 +15,7 @@ async function bootstrap() {
     }),
   );
   app.enableCors({
-    origin: true,
+    // origin: true,
   });
   await app.listen(port);
   console.log(`сервер запущен на портк ${port}`);
